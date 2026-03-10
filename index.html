@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>家庭 AI Agent 显示屏 — 软硬结合新机会</title>
+<style>
+  :root {
+    --bg: #0f0f11;
+    --bg2: #18181c;
+    --bg3: #222228;
+    --border: #2e2e38;
+    --text: #e8e8f0;
+    --muted: #888898;
+    --accent: #7c6cff;
+    --accent2: #ff6c9d;
+    --green: #3ecf8e;
+    --yellow: #f5c542;
+    --red: #ff5555;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+  /* ── Layout ── */
+  .deck { display: flex; flex-direction: column; min-height: 100vh; }
+  .slide { display: none; flex-direction: column; justify-content: center; min-height: 100vh; padding: 60px 80px; max-width: 960px; margin: 0 auto; width: 100%; }
+  .slide.active { display: flex; }
+
+  /* ── Nav ── */
+  .nav { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 40px; padding: 10px 24px; z-index: 100; }
+  .nav button { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; padding: 4px 8px; transition: color .2s; }
+  .nav button:hover { color: var(--text); }
+  .nav .counter { font-size: 13px; color: var(--muted); min-width: 48px; text-align: center; }
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); transition: width .3s ease; z-index: 200; }
+
+  /* ── Typography ── */
+  h1 { font-size: 3rem; font-weight: 800; line-height: 1.1; letter-spacing: -1px; }
+  h2 { font-size: 2rem; font-weight: 700; line-height: 1.2; margin-bottom: 24px; }
+  h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 16px; color: var(--accent); }
+  p { font-size: 1.05rem; line-height: 1.7; color: var(--muted); margin-bottom: 12px; }
+  .subtitle { font-size: 1.25rem; color: var(--muted); margin-top: 16px; line-height: 1.5; }
+  .label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .big-quote { font-size: 2rem; font-weight: 700; line-height: 1.3; color: var(--text); border-left: 4px solid var(--accent); padding-left: 24px; margin: 24px 0; }
+  .note { font-size: 0.8rem; color: var(--muted); margin-top: 8px; }
+  .note a { color: var(--muted); }
+
+  /* ── Accent text ── */
+  .accent { color: var(--accent); }
+  .accent2 { color: var(--accent2); }
+  .green { color: var(--green); }
+  .yellow { color: var(--yellow); }
+  .red { color: var(--red); }
+
+  /* ── Cards ── */
+  .cards { display: grid; gap: 16px; margin-top: 8px; }
+  .cards.col2 { grid-template-columns: 1fr 1fr; }
+  .cards.col3 { grid-template-columns: 1fr 1fr 1fr; }
+  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+  .card h3 { margin-bottom: 8px; }
+  .card p { font-size: 0.95rem; }
+
+  /* ── Stats row ── */
+  .stats { display: flex; gap: 24px; flex-wrap: wrap; margin: 24px 0; }
+  .stat { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; flex: 1; min-width: 120px; }
+  .stat .val { font-size: 1.8rem; font-weight: 800; color: var(--text); }
+  .stat .key { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+
+  /* ── Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 0.95rem; margin-top: 16px; }
+  th { text-align: left; padding: 10px 16px; background: var(--bg3); color: var(--muted); font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+  td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg3); }
+
+  /* ── Product image ── */
+  .product-img { width: 100%; max-height: 280px; object-fit: contain; border-radius: 12px; background: var(--bg3); padding: 12px; margin-bottom: 16px; }
+  .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; margin-top: 8px; }
+  .product-grid .product-img { max-height: 220px; }
+
+  /* ── List ── */
+  ul, ol { padding-left: 20px; }
+  li { margin-bottom: 8px; font-size: 1rem; line-height: 1.6; color: var(--muted); }
+  li strong { color: var(--text); }
+  .check-list { list-style: none; padding: 0; }
+  .check-list li::before { content: '✓ '; color: var(--green); font-weight: 700; }
+  .x-list { list-style: none; padding: 0; }
+  .x-list li::before { content: '✗ '; color: var(--red); font-weight: 700; }
+
+  /* ── Cover ── */
+  .cover-tag { display: inline-block; background: var(--accent); color: white; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-radius: 6px; padding: 4px 10px; margin-bottom: 24px; }
+  .cover-meta { display: flex; gap: 24px; margin-top: 40px; flex-wrap: wrap; }
+  .cover-meta .item { }
+  .cover-meta .item .v { font-size: 1.5rem; font-weight: 700; }
+  .cover-meta .item .k { font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  /* ── Divider ── */
+  .divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+  /* ── Tag chips ── */
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .chip { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; color: var(--muted); }
+
+  /* ── Quote blocks ── */
+  blockquote { background: var(--bg2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 12px 0; font-size: 0.95rem; color: var(--muted); font-style: italic; }
+
+  /* ── Highlight box ── */
+  .highlight { background: linear-gradient(135deg, rgba(124,108,255,0.1), rgba(255,108,157,0.08)); border: 1px solid rgba(124,108,255,0.3); border-radius: 16px; padding: 28px 32px; margin: 16px 0; }
+  .highlight h2 { margin-bottom: 8px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .slide { padding: 40px 24px; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    .cards.col2, .cards.col3, .product-grid { grid-template-columns: 1fr; }
+    .stats { gap: 12px; }
+    .stat .val { font-size: 1.4rem; }
+    .big-quote { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<div class="deck" id="deck">
+
+<!-- 1. Cover -->
+<div class="slide active">
+  <div class="cover-tag">思路分享 · 2026-03</div>
+  <h1>家庭 AI Agent<br><span class="accent">显示屏形态</span></h1>
+  <p class="subtitle">从 Skylight / DAKboard 出发<br>看软硬结合的新机会</p>
+  <div class="cover-meta">
+    <div class="item"><div class="v accent">150万+</div><div class="k">Skylight 累计销量</div></div>
+    <div class="item"><div class="v accent">$50M</div><div class="k">Skylight 融资额</div></div>
+    <div class="item"><div class="v accent">99%</div><div class="k">YoY 增长</div></div>
+    <div class="item"><div class="v accent2">0</div><div class="k">真正的 AI Agent</div></div>
+  </div>
+</div>
+
+<!-- 2. 赛道概览 -->
+<div class="slide">
+  <div class="label">赛道背景</div>
+  <h2>把家庭"信息中心"升级</h2>
+  <p>从冰箱贴、白板、群消息 → 一块<strong style="color:var(--text)">常亮的家庭协作屏</strong></p>
+  <div class="divider"></div>
+  <div class="cards col3">
+    <div class="card">
+      <h3>Skylight</h3>
+      <p>消费硬件品牌<br>150万+ 台，$50M 融资</p>
+      <div class="chips"><span class="chip">硬件+订阅</span><span class="chip">普通家庭</span></div>
+    </div>
+    <div class="card">
+      <h3>DAKboard</h3>
+      <p>开放软件平台<br>DIY 社区驱动</p>
+      <div class="chips"><span class="chip">SaaS</span><span class="chip">极客用户</span></div>
+    </div>
+    <div class="card">
+      <h3>Cozyla</h3>
+      <p>中国出海 DTC 硬件<br>$629–$1099 高端定位</p>
+      <div class="chips"><span class="chip">DTC</span><span class="chip">高端家庭</span></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <p><strong style="color:var(--text)">共同点：</strong>没有一家做到真正的 AI Agent。都是"展示工具"，不是"协调者"。</p>
+</div>
+
+<!-- 3. Skylight 产品图 -->
+<div class="slide">
+  <div class="label">产品 01 · Skylight</div>
+  <div class="product-grid">
+    <div>
+      <img class="product-img" src="https://cdn.shopify.com/s/files/1/1353/3805/files/Q1_2026-Cal2_Classic_WHT_PDP-listing-images_00-nobadge_aa052cdc-568a-45a9-b9ec-c1995f712196_750x482_crop_center.jpg?v=1770977385" alt="Skylight Calendar 2" />
+      <p class="note">Skylight Calendar 2（15"） · <a href="https://myskylight.com" target="_blank">myskylight.com</a></p>
+    </div>
+    <div>
+      <h2>Skylight</h2>
+      <p>消费品路线的<strong style="color:var(--text)">教科书级样本</strong></p>
+      <div class="divider"></div>
+      <ul>
+        <li><strong>15" / 27"</strong> 专属触摸屏，Full HD</li>
+        <li>可更换 <strong>Snap Frames</strong> 边框</li>
+        <li>多成员<strong>颜色编码</strong>日历</li>
+        <li>任务管理 / 家务 Checklist</li>
+        <li><strong>Magic Import</strong>：OCR 解析邮件/PDF</li>
+        <li>餐饮规划 + 食谱库（Plus 订阅）</li>
+      </ul>
+      <div class="divider"></div>
+      <p><span class="accent">$159</span>（15"）～ <span class="accent">$399</span>（27" Max）<br>订阅 <span class="accent">$99 / 年</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- 4. Skylight 数据 -->
+<div class="slide">
+  <div class="label">产品 01 · Skylight · 数据</div>
+  <h2>Skylight 是怎么赢的</h2>
+  <div class="stats">
+    <div class="stat"><div class="val accent">150万+</div><div class="key">累计销量</div></div>
+    <div class="stat"><div class="val accent">9.3M</div><div class="key">活跃用户</div></div>
+    <div class="stat"><div class="val accent">$50M</div><div class="key">融资额</div></div>
+    <div class="stat"><div class="val accent">99%</div><div class="key">YoY 增长</div></div>
+    <div class="stat"><div class="val accent">4.8 ⭐</div><div class="key">App Store · 43K 评分</div></div>
+  </div>
+  <div class="divider"></div>
+  <div class="label">商业化路径</div>
+  <div class="cards col2">
+    <div class="card">
+      <h3>硬件</h3>
+      <p>一次性购买入场，低门槛获客</p>
+    </div>
+    <div class="card">
+      <h3>订阅</h3>
+      <p>$99/年，长期利润来源；Magic Import、餐饮规划等高频功能锁在 Plus</p>
+    </div>
+  </div>
+</div>
+
+<!-- 5. Skylight 评价 + AI -->
+<div class="slide">
+  <div class="label">产品 01 · Skylight · 用户声音</div>
+  <h2>用户怎么说</h2>
+  <blockquote>"终于不用每天早上大声喊'今天谁有活动'了"</blockquote>
+  <blockquote>"Calendar Plus 的 Magic Import 是真的有用，学校 PDF 直接吃进去"</blockquote>
+  <div class="divider"></div>
+  <div class="label red">高频差评 = 我们的机会</div>
+  <table>
+    <tr><th>差评</th><th>隐含需求</th></tr>
+    <tr><td>「为什么不能在屏幕上直接加事件？」</td><td>屏上触控编辑 + 语音</td></tr>
+    <tr><td>「没有推送，不在旁边就错过了」</td><td>主动推送到手机</td></tr>
+    <tr><td>「AI 在哪？感觉就是个日历」</td><td>主动协调，不只展示</td></tr>
+    <tr><td>「录入太麻烦，学校东西要手动敲」</td><td>自动解析群消息/邮件</td></tr>
+    <tr><td>「家人各管各的，还是没协调起来」</td><td>Agent 主动推动</td></tr>
+  </table>
+</div>
+
+<!-- 6. DAKboard -->
+<div class="slide">
+  <div class="label">产品 02 · DAKboard</div>
+  <div class="product-grid">
+    <div>
+      <img class="product-img" src="https://cdn.shopify.com/s/files/1/2094/1461/files/touch_22_landing_v1_02.png?v=1768229921" alt="DAKboard Touch 22" />
+      <p class="note">DAKboard Wall Display Touch 22 · <a href="https://shop.dakboard.com" target="_blank">dakboard.com</a></p>
+    </div>
+    <div>
+      <h2>DAKboard</h2>
+      <p>开放平台路线的<strong style="color:var(--text)">极客样本</strong></p>
+      <div class="divider"></div>
+      <ul>
+        <li>93+ <strong>原生数据集成</strong>（日历/天气/股票/智能家居…）</li>
+        <li>支持 <strong>DIY 装机</strong>：树莓派/安卓/旧平板跑 DAKboard OS</li>
+        <li>官方硬件：Touch 22（<span class="accent">$599.95</span>）</li>
+        <li>自定义 HTML/JS Widget，<strong>开发者天堂</strong></li>
+        <li>6 人小团队，年收入 ~$135K</li>
+      </ul>
+      <div class="divider"></div>
+      <p class="note">问题：「配置太复杂，我老婆完全不会用」</p>
+      <p class="note">价值：<span class="green">验证了开放社区的需求存在</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- 7. Cozyla -->
+<div class="slide">
+  <div class="label">产品 03 · Cozyla（出海视角）</div>
+  <div class="product-grid">
+    <div>
+      <img class="product-img" src="https://cdn.shopify.com/s/files/1/0657/4958/2073/files/24inch_cozyla_smart_calendar.jpg?v=1761813633" alt="Cozyla 24" />
+      <p class="note">Cozyla Calendar+ 2（24"） · <a href="https://cozyla.com" target="_blank">cozyla.com</a></p>
+    </div>
+    <div>
+      <h2>Cozyla</h2>
+      <p>中国团队出海，做出了<strong style="color:var(--text)">高端外观差异化</strong></p>
+      <div class="divider"></div>
+      <ul>
+        <li><strong>15.6" / 24" / 32"</strong> 三个尺寸</li>
+        <li>内置 Android，可装第三方 App</li>
+        <li>8 成员配置文件 + 颜色编码</li>
+        <li>Amazon Alexa / Google Home 集成</li>
+        <li>评分 <strong class="green">4.94 / 398 reviews</strong>（官网）</li>
+        <li>价格 <span class="accent">$629.99</span>（24"）～ <span class="accent">$1,099.99</span>（32"）</li>
+      </ul>
+      <div class="divider"></div>
+      <p class="green">✓ 验证：国内团队可以打这个市场，高价也卖得动</p>
+      <p class="red">✗ 局限：CalendarOS 和 Skylight 一样，展示工具，无 AI</p>
+    </div>
+  </div>
+</div>
+
+<!-- 8. Hearth Display -->
+<div class="slide">
+  <div class="label">产品 04 · Hearth Display（最接近 AI 的玩家）</div>
+  <div class="product-grid">
+    <div>
+      <img class="product-img" src="https://hearthdisplay.com/cdn/shop/files/HearthDisplay_1004Calendar_1.jpg?v=1749843870" alt="Hearth Display" />
+      <p class="note">Hearth Display · <a href="https://hearthdisplay.com" target="_blank">hearthdisplay.com</a> · $399</p>
+    </div>
+    <div>
+      <h2>Hearth</h2>
+      <p>方向对了，但没做到</p>
+      <div class="divider"></div>
+      <ul>
+        <li>融资 <strong class="accent">$7.6M</strong>（2022 $2.8M + 2023 $4.6M）</li>
+        <li><strong>Hearth Helper</strong>：类 AI 助手，拍照上传纸质日历自动解析</li>
+        <li>明确打"家庭 mental load"概念</li>
+        <li>App Store <span class="yellow">3.9 分 / 206 ratings</span>（产品有瑕疵）</li>
+        <li>2023 年收入约 $140 万，增长乏力</li>
+      </ul>
+      <div class="divider"></div>
+      <p class="yellow">⚑ Hearth 想做但没做到的事，正是我们的机会</p>
+    </div>
+  </div>
+</div>
+
+<!-- 9. 赛道判断 -->
+<div class="slide">
+  <div class="label">赛道结构判断</div>
+  <h2>市场验证了什么？没解决什么？</h2>
+  <div class="cards col2">
+    <div class="card">
+      <h3 class="green">✓ 已验证</h3>
+      <ul class="check-list">
+        <li>家庭愿意为"共享信息屏"付费（150万台是铁证）</li>
+        <li>高端用户愿意付 $600–$1000</li>
+        <li>开放平台有社区黏性（DAKboard DIY 用户群）</li>
+        <li>"解决 mental load"是真实情绪需求</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="red">✗ 没解决</h3>
+      <ul class="x-list">
+        <li>没有一家做到 AI Agent 级别的主动协调</li>
+        <li>所有产品都是"展示工具"，等用户来看</li>
+        <li>家庭信息仍然碎片化（妈妈的脑子、群消息、PDF…）</li>
+        <li>高摩擦：还是要手动录入，还是要记住去看</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 10. 核心洞察 -->
+<div class="slide">
+  <div class="highlight">
+    <div class="label">核心洞察</div>
+    <div class="big-quote">不是"更好的日历屏"<br>是"替家庭做协调的 agent"</div>
+    <p>Skylight 证明了需求。但 AI 带来的是<strong style="color:var(--text)">根本性差异</strong>——</p>
+    <p>从"被动展示"到"主动协调"：不只是告诉你日历里有什么，而是帮你<strong style="color:var(--text)">记住、分配、推进、跟进</strong>。</p>
+  </div>
+  <div class="divider"></div>
+  <div class="cards col2">
+    <div class="card">
+      <h3>现有产品</h3>
+      <p>展示 → 等你来看 → 你自己决定怎么办</p>
+    </div>
+    <div class="card">
+      <h3 class="accent">我们</h3>
+      <p>主动推送 → 建议方案 → 跟进结果</p>
+    </div>
+  </div>
+</div>
+
+<!-- 11. 目标用户 -->
+<div class="slide">
+  <div class="label">目标人群</div>
+  <h2>谁在承受 Mental Load</h2>
+  <p>不只是"做事"，而是：<strong style="color:var(--text)">记住有什么事、想着什么时候做、提醒别人做、检查有没有做完</strong></p>
+  <div class="divider"></div>
+  <div class="cards col3">
+    <div class="card">
+      <h3>婚后家庭女主</h3>
+      <p>承担 70-80% 家庭 mental load</p>
+      <p class="note">痛点：「我不是不想分担，是我得先记着，然后再教他」</p>
+      <p class="note accent">需求：有人帮我记住、协调、推进</p>
+    </div>
+    <div class="card">
+      <h3>恋爱中的男人</h3>
+      <p>想表现体贴，但总忘</p>
+      <p class="note">痛点：「我不是不关心，就是总忘」</p>
+      <p class="note accent">需求：帮他主动记住，让他"显得靠谱"</p>
+    </div>
+    <div class="card">
+      <h3>有未成年子女的父母</h3>
+      <p>多孩日程指数级复杂</p>
+      <p class="note">痛点：「光管孩子的事就用完我的脑子了」</p>
+      <p class="note accent">需求：孩子任务自动分解，进度可见</p>
+    </div>
+  </div>
+</div>
+
+<!-- 12. 差异化对比 -->
+<div class="slide">
+  <div class="label">差异化</div>
+  <h2>主动 vs 被动</h2>
+  <table>
+    <tr><th>维度</th><th>现有产品</th><th class="accent">我们</th></tr>
+    <tr><td>信息获取</td><td>手动录入</td><td class="accent">自动抓取（邮件/群消息/拍照）</td></tr>
+    <tr><td>行动模式</td><td>展示，等你来看</td><td class="accent">主动推送 + 提醒 + 建议</td></tr>
+    <tr><td>任务分配</td><td>手动分配</td><td class="accent">基于成员时间/能力建议分配</td></tr>
+    <tr><td>冲突处理</td><td>没有</td><td class="accent">自动识别冲突并提出方案</td></tr>
+    <tr><td>家庭沟通</td><td>看同一块屏</td><td class="accent">agent 作为协调中间人</td></tr>
+  </table>
+</div>
+
+<!-- 13. 产品路线 -->
+<div class="slide">
+  <div class="label">产品路线</div>
+  <h2>软件先行，三步走</h2>
+  <div class="cards col3">
+    <div class="card">
+      <h3>短期 · 0–12个月</h3>
+      <p><strong style="color:var(--text)">家庭智能体 App</strong></p>
+      <ul style="margin-top:8px">
+        <li>接入 Google/Apple/Outlook 日历</li>
+        <li>解析群消息、邮件、学校通知</li>
+        <li>AI 主动生成每日家庭简报</li>
+        <li>冲突提醒 + 任务分配建议</li>
+        <li>一键指派 + 自动跟进</li>
+      </ul>
+      <div class="divider"></div>
+      <p class="note">营销角度：<span class="accent2">「解放妈妈的大脑」</span></p>
+    </div>
+    <div class="card">
+      <h3>中期 · 12–24个月</h3>
+      <p><strong style="color:var(--text)">社区 + 硬件兼容</strong></p>
+      <ul style="margin-top:8px">
+        <li>支持旧 iPad / 安卓平板跑 App</li>
+        <li>开放 DIY 社区</li>
+        <li>适配主流显示屏</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>长期 · 24个月+</h3>
+      <p><strong style="color:var(--text)">自然生长出硬件</strong></p>
+      <ul style="margin-top:8px">
+        <li>开放硬件规格标准</li>
+        <li>官方推荐机型</li>
+        <li>视情况推自有品牌屏</li>
+      </ul>
+      <div class="divider"></div>
+      <p class="note">原则：硬件是软件社区成熟后的<strong>自然延伸</strong>，不是前提</p>
+    </div>
+  </div>
+</div>
+
+<!-- 14. 总结 -->
+<div class="slide">
+  <div class="label">总结</div>
+  <h2>为什么现在，为什么我们</h2>
+  <div class="cards col2" style="margin-top:8px">
+    <div class="card">
+      <h3>市场已被验证</h3>
+      <p>Skylight 150万台证明了需求存在，但没人做到 AI agent</p>
+    </div>
+    <div class="card">
+      <h3>时机到了</h3>
+      <p>LLM 能力在 2024-2025 才到了能做实用家庭 agent 的门槛</p>
+    </div>
+    <div class="card">
+      <h3>切入点清晰</h3>
+      <p>软件先行，Calendar + Mental Load，目标人群明确</p>
+    </div>
+    <div class="card">
+      <h3>差异化明确</h3>
+      <p>主动 agent vs 被动展示，不是"更好的日历"</p>
+    </div>
+  </div>
+  <div class="highlight" style="margin-top:24px">
+    <div class="big-quote" style="font-size:1.5rem">"不是展示家庭信息的屏幕<br>是替家庭做协调的 agent"</div>
+  </div>
+  <p class="note" style="margin-top:16px">by tuly · 2026-03 · <a href="https://github.com/tuly-space/home-agent-display" target="_blank" style="color:var(--muted)">github.com/tuly-space/home-agent-display</a></p>
+</div>
+
+</div><!-- /deck -->
+
+<nav class="nav">
+  <button onclick="go(-1)" title="上一页">←</button>
+  <span class="counter" id="counter">1 / 14</span>
+  <button onclick="go(1)" title="下一页">→</button>
+</nav>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  let cur = 0;
+
+  function show(n) {
+    slides[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    counter.textContent = `${cur + 1} / ${slides.length}`;
+    progress.style.width = `${((cur + 1) / slides.length) * 100}%`;
+    window.scrollTo(0, 0);
+  }
+
+  function go(d) { show(cur + d); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(-1); }
+  });
+
+  // Touch swipe
+  let tx = 0;
+  document.addEventListener('touchstart', e => tx = e.touches[0].clientX);
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+  });
+
+  show(0);
+</script>
+</body>
+</html>
