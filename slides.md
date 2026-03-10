@@ -37,24 +37,38 @@
 
 ![Skylight Calendar 2（15"）](https://cdn.shopify.com/s/files/1/1353/3805/files/Q1_2026-Cal2_Classic_WHT_PDP-listing-images_00-nobadge_aa052cdc-568a-45a9-b9ec-c1995f712196_750x482_crop_center.jpg?v=1770977385)
 
-*图：Skylight Calendar 2（15英寸），官网售价 $159 · 来源：[myskylight.com](https://myskylight.com/products/skylight-calendar/)*
+*图：Skylight Calendar 2（15英寸），官网售价 $249 · 来源：[myskylight.com](https://myskylight.com/products/skylight-calendar/)*
 
-**硬件：**
-- 15" / 27" 专属触摸屏，Full HD 1920×1080
-- 可更换边框（Snap Frames），现代/木纹/黑色
-- 挂墙或立式，16GB 本地存储
+**公司背景：**
+- 2014 年创立于 West Hollywood，定位 **"building the OS for families"**
+- **Bootstrapped 盈利**，无 VC 股权稀释；债务融资 $65M（$15M 2023 + $50M 2025）
+- 零售渠道：Costco、Best Buy、Walmart、Amazon、Target
+
+**硬件产品线：**
+
+| 型号 | 价格 | 定位 |
+|------|------|------|
+| Calendar 10" | $159 | 入门 |
+| Calendar 15" | $249 | 主力款 |
+| Cal Max 27" | $570–$629 | 旗舰（常断货） |
+| Frame 数码相框 | $159–$329 | 起家产品 |
 
 **软件（免费功能）：**
-- 多成员颜色编码日历
-- 任务管理（chores checklist）
-- 自定义视图：日/周/月/日程
+- Google Calendar 双向同步；iCloud/Outlook/Cozi 单向导入
+- 多成员颜色编码日历，自定义视图：日/周/月/日程
+- 家务 Checklist + 儿童触屏勾选（孩子直接用屏幕，不需要手机）
 - 天气、睡眠模式、多设备同步
 
-**Calendar Plus 订阅（最高 $79/年）：**
-- 积分奖励系统（Rewards）：孩子完成任务得星星，兑换奖励
-- 餐饮规划 + 食谱库
+**Calendar Plus 订阅（$79/年）：**
+- **积分奖励系统（Rewards）**：孩子完成任务得星星，可兑换自定义奖励
+- **Magic Import（Sidekick AI 核心功能）**：转发邮件/PDF/纸质传单拍照 → 自动解析成日历事件；The Verge 实测：一张 9 天网球赛日程表，Sidekick 完整解析，优于 Gemini 和 ChatGPT
+- 餐饮规划：基于偏好自动生成一周菜单 + Instacart 购物导出
+- 食谱导入：拍照手写菜谱 / 粘贴 URL → 去广告保存干净食谱
 - 照片屏保
-- Magic Import：邮件/PDF 自动解析进日历
+
+**CES 2026 新品 Calendar 2 新增 AI：**
+- 拍冰箱照片 → 根据现有食材推荐菜谱
+- 孩子用图片（不需要识字）完成家务打卡
 
 ---
 
@@ -63,37 +77,93 @@
 | 指标 | 数据 |
 |---|---|
 | 累计销量 | 150万–250万台 |
-| 活跃用户 | 9.3M |
-| 融资 | $50M（最近一轮） |
+| 活跃用户 | 9.3M，其中 1.3M+ 家庭使用日历产品 |
+| 融资 | $65M 债务融资（无股权稀释） |
 | YoY 增长 | 99% |
 | App Store 评分 | 4.8 / 43,000+ ratings |
-| 硬件价格 | $159（15"）～ $629（27" Max） |
-| 订阅价格 | 最高 $79 / 年（Calendar Plus） |
+| 硬件价格 | $159（10"）～ $629（27" Max） |
+| 订阅价格 | $79 / 年（Calendar Plus） |
 
-**商业化路径：**
+**对比：Cozi（纯软件）vs Skylight（软硬结合）**
+
+| 维度 | Cozi | Skylight |
+|---|---|---|
+| 用户规模 | 20M 注册用户 | 9.3M 活跃用户 |
+| 月收入 | ~$400K（SensorTower 估算） | 远超（99% YoY，盈利） |
+| 付费率 | <2%（靠广告变现） | 高（硬件 $159-629 本身即付费门槛） |
+| 功能深度 | 共享日历 + 购物清单 | 日历 + 家务 + 餐饮 + AI 导入 + 儿童系统 |
+
+**Skylight 商业化的本质：**
 ```
-硬件销售（一次性）→ 免费 App 拉留存 → 订阅转化（Calendar Plus）→ 多设备 Cross-sell
+高客单价硬件（$159-629）筛选用户质量
+    ↓
+物理存在感 = 每天 100 次 impression，零成本留存
+    ↓
+儿童参与改变家庭行为动力学（全家都是用户）
+    ↓
+订阅转化（$79/年）+ 多设备 Cross-sell
 ```
 
-**核心逻辑：** 硬件是获客入口，订阅是长期利润
+**营销体系：** 激进的 influencer + affiliate 矩阵，深度绑定 mom blogger / TikTok / YouTube，节日季礼物定位（TechCrunch / Mashable "best gifts for moms"）；专设 Influencer Marketing Coordinator 岗位。
 
 ---
 
-## Slide 5｜Skylight — 用户怎么说 & AI 现状
+## Slide 5｜Skylight — Sidekick AI 深拆 & 用户声音
 
-**正面评价：**
-> *"这是我们家送出去最受欢迎的礼物，爷爷奶奶一分钟就学会了"*
+### Sidekick 是什么
+
+Skylight Plus 的 AI 功能套件，2024 年底推出，官方宣称"每月帮你省 10 小时"。
+
+**做到了的：**
+- Magic Import：非结构化文件 → 日历事件（OCR + AI 解析，业内领先）
+- 食谱库 + 基于口味偏好生成菜单 + Instacart 联动
+
+**做不到的（明确局限）：**
+- ❌ 无语音交互（无麦克风，无 Siri/Alexa 集成）
+- ❌ 不主动干预（不会说"你今天有 3 个事件撞了"）
+- ❌ 不学习用户行为模式
+- ❌ 任务系统弱：无子任务、无 deadline、不能指派给特定成员
+- ❌ 只有 Google 双向同步，其他日历不回写
+- ❌ 不连接外部服务（除 Instacart）
+- ❌ 不理解家庭关系（不知道"这个事件应该通知爸爸而不是妈妈"）
+
+**本质判断：Sidekick = 文档解析引擎 + 基础 LLM 推荐，不是 agent。** 停在"解析"层，没到"理解"和"行动"层。
+
+---
+
+### 用户怎么说
+
+**正面：**
+> *"就为了 Magic Import 续费，ADHD 家庭的救星，学校 PDF 直接吃进来"*（来源：Reddit r/smarthome）
 
 > *"终于不用每天早上大声喊'今天谁有活动'了"*
 
-**高频差评（结构性局限）：**
-- 「为什么不能直接在屏幕上加事件？非要用手机 App」
-- 「没有提醒推送，屏幕挂在厨房但我不在旁边」
-- 「AI 功能在哪？感觉就是个更好看的 Google Calendar」
+**差评（$39→$79 涨价 100% 后爆发）：**
+> *"How the fuck do they justify charging $79/yr for basic functions?"*（来源：r/skylightcalendar）
 
-**AI 现状：** 目前几乎为零。仅有 Magic Import（OCR 解析）和食谱关键词匹配。
+> *"Can't believe how you guys would hide photos behind a paid service. That's top level greed"*（有用户因此退货）
 
-**本质：** Skylight 是精致的"展示工具"，不是 agent。告诉你日历里有什么，但不会主动帮你管。
+> *"I only use Magic Import and photo screensaver, why am I paying for the full package?"*
+
+**结构性局限的用户原话：**
+> *"它只告诉我孩子在哪（上面有什么），不告诉我孩子怎么样"*
+
+> *"感觉就是个更好看的 Google Calendar，AI 功能在哪？"*
+
+---
+
+### Skylight 已知的商用自发场景（官方无 B2B 产品）
+
+- 小型诊所前台展示团队日程
+- 家庭日托（home daycare）展示孩子日程给家长
+- 教会 / 社区组织公共活动日历
+- 小团队协作：替代白板展示项目时间线
+
+**Skylight 商用的结构性局限：**
+- 只支持 Google Calendar 双向同步（企业 Outlook/365 需 IT 审批，常被拒）
+- 无权限分级（谁能看什么、谁能改什么）
+- 无多设备管理面板（10 台屏幕无法统一管理）
+- 不支持自定义品牌/显示
 
 ---
 
