@@ -1,9 +1,12 @@
-# 家庭 AI agent 显示屏
+# 家庭 AI Agent 显示屏
 ## 从 Skylight / DAKboard 看软硬结合新机会
+
+> 版本：2026-03-10  
+> 目的：从 Skylight、DAKboard、Cozyla 三条路线出发，分析家庭显示屏赛道现状，论证 AI agent 切入的机会，收敛到软件先行的产品路线
 
 ---
 
-## 这个赛道在说什么
+## Slide 1｜这个赛道在说什么
 
 > 把家里的"信息中心"从冰箱贴、白板、群消息  
 > 升级成一块**常亮的家庭协作屏**
@@ -17,7 +20,7 @@
 
 ---
 
-## 三款产品全景
+## Slide 2｜三款产品全景
 
 | | Skylight | DAKboard | Cozyla |
 |---|---|---|---|
@@ -26,18 +29,15 @@
 | AI 能力 | 几乎无 | 无 | 极少 |
 | 最大价值 | 规模+生态 | 自由度 | 高端外观 |
 
----
-
-## Skylight — 消费品路线的教科书
-
-![Skylight Calendar 15"](https://cdn.shopify.com/s/files/1/1353/3805/files/Q1_2026-Cal2_Classic_WHT_PDP-listing-images_00-nobadge_aa052cdc-568a-45a9-b9ec-c1995f712196_750x482_crop_center.jpg?v=1770977385)
-
-*图：Skylight Calendar 2（15英寸），官网售价 $159*  
-*来源：[myskylight.com](https://myskylight.com/products/skylight-calendar/)*
+**共同点：没有一家做到真正的 AI Agent。都是"展示工具"，不是"协调者"。**
 
 ---
 
-### Skylight 产品形态
+## Slide 3｜Skylight — 消费品路线的教科书
+
+![Skylight Calendar 2（15"）](https://cdn.shopify.com/s/files/1/1353/3805/files/Q1_2026-Cal2_Classic_WHT_PDP-listing-images_00-nobadge_aa052cdc-568a-45a9-b9ec-c1995f712196_750x482_crop_center.jpg?v=1770977385)
+
+*图：Skylight Calendar 2（15英寸），官网售价 $159 · 来源：[myskylight.com](https://myskylight.com/products/skylight-calendar/)*
 
 **硬件：**
 - 15" / 27" 专属触摸屏，Full HD 1920×1080
@@ -58,7 +58,7 @@
 
 ---
 
-### Skylight 数字
+## Slide 4｜Skylight — 数字与商业化路径
 
 | 指标 | 数据 |
 |---|---|
@@ -70,61 +70,38 @@
 | 硬件价格 | $159（15"）～ $629（27" Max） |
 | 订阅价格 | 最高 $79 / 年（Calendar Plus） |
 
----
-
-### Skylight 商业化路径
-
+**商业化路径：**
 ```
-硬件销售（一次性）
-    ↓
-免费 App 拉留存
-    ↓
-订阅转化（Calendar Plus）
-    ↓
-多设备 → 家庭第二台屏（Cross-sell）
+硬件销售（一次性）→ 免费 App 拉留存 → 订阅转化（Calendar Plus）→ 多设备 Cross-sell
 ```
 
 **核心逻辑：** 硬件是获客入口，订阅是长期利润
 
 ---
 
-### Skylight 用户怎么说
+## Slide 5｜Skylight — 用户怎么说 & AI 现状
 
+**正面评价：**
 > *"这是我们家送出去最受欢迎的礼物，爷爷奶奶一分钟就学会了"*
 
 > *"终于不用每天早上大声喊'今天谁有活动'了"*
 
-> *"Calendar Plus 的 Magic Import 是真的有用，把学校发的 PDF 直接吃进去"*
-
-**高频差评：**
+**高频差评（结构性局限）：**
 - 「为什么不能直接在屏幕上加事件？非要用手机 App」
 - 「没有提醒推送，屏幕挂在厨房但我不在旁边」
 - 「AI 功能在哪？感觉就是个更好看的 Google Calendar」
 
----
+**AI 现状：** 目前几乎为零。仅有 Magic Import（OCR 解析）和食谱关键词匹配。
 
-### Skylight 的 AI 现状
-
-目前几乎为零。
-
-仅有的"智能"：
-- Magic Import：OCR 解析 PDF/图片转日历事件
-- Smart recipes：搜索食谱时的关键词匹配
-
-**本质上：** Skylight 是一个精致的"展示工具"，不是 agent。它告诉你日历里有什么，但不会主动帮你管。
+**本质：** Skylight 是精致的"展示工具"，不是 agent。告诉你日历里有什么，但不会主动帮你管。
 
 ---
 
-## DAKboard — 开放平台路线
+## Slide 6｜DAKboard — 开放平台路线
 
-![DAKboard Touch 22](https://cdn.shopify.com/s/files/1/2094/1461/files/touch_22_landing_v1_02.png?v=1768229921)
+![DAKboard Wall Display Touch 22](https://cdn.shopify.com/s/files/1/2094/1461/files/touch_22_landing_v1_02.png?v=1768229921)
 
-*图：DAKboard Wall Display Touch 22（21.5英寸触摸屏），售价 $599.95*  
-*来源：[shop.dakboard.com](https://shop.dakboard.com/products/dakboard-wall-display-touch)*
-
----
-
-### DAKboard 产品形态
+*图：DAKboard Wall Display Touch 22（21.5英寸触摸屏），售价 $599.95 · 来源：[dakboard.com](https://shop.dakboard.com/products/dakboard-wall-display-touch)*
 
 **理念：** 把任何屏幕变成家庭信息中心
 
@@ -141,7 +118,7 @@
 
 ---
 
-### DAKboard 数字
+## Slide 7｜DAKboard — 数字与商业化路径
 
 | 指标 | 数据 |
 |---|---|
@@ -152,51 +129,31 @@
 | 官方硬件价格 | $549.95–$599.95 |
 | 订阅（含云同步） | $6.99–$13.99 / 月 |
 
----
-
-### DAKboard 商业化路径
-
+**商业化路径：**
 ```
-免费版 DAKboard OS（拉 DIY 用户）
-    ↓
-订阅 Pro（解锁更多集成）
-    ↓
-官方硬件（更懒的用户）
+免费版 DAKboard OS（拉 DIY 用户）→ 订阅 Pro（解锁更多集成）→ 官方硬件（更懒的用户）
 ```
 
 **问题：** 盈利太小，6 人团队，年收入约 $135K，没有规模化势能
 
-**价值：** 验证了"开放 + 可定制"的用户群存在，社区黏性高
+**价值：** 验证了"开放 + 可定制"的用户群存在；用户痛点：「配置太复杂，我老婆完全不会用」
+
+**AI 现状：** 完全没有 AI。纯粹数据展示板，所有内容手动配置。
 
 ---
 
-### DAKboard 的 AI 现状
+## Slide 8｜Cozyla — 中国出海视角
 
-**完全没有 AI。**
+![Cozyla Calendar+ 2（24"）](https://cdn.shopify.com/s/files/1/0657/4958/2073/files/24inch_cozyla_smart_calendar.jpg?v=1761813633)
 
-DAKboard 是纯粹的"数据展示板"，所有内容都是手动配置。适合极客，不适合普通家庭。
-
-用户痛点：「配置太复杂，我花了一个周末才搞好，我老婆完全不会用」
-
----
-
-## Cozyla — 中国出海视角
-
-![Cozyla 24" Calendar+ 2](https://cdn.shopify.com/s/files/1/0657/4958/2073/files/24inch_cozyla_smart_calendar.jpg?v=1761813633)
-
-*图：Cozyla Calendar+ 2（24英寸触摸屏），售价 $629.99*  
-*来源：[cozyla.com](https://www.cozyla.com/products/digital-family-calendar-all-in-one-smart-touchscreen)*
-
----
-
-### Cozyla 产品形态
+*图：Cozyla Calendar+ 2（24英寸触摸屏），售价 $629.99 · 来源：[cozyla.com](https://www.cozyla.com/products/digital-family-calendar-all-in-one-smart-touchscreen)*
 
 **定位：** 高端家庭智能日历屏，面向北美市场的中国出海品牌
 
 **硬件：**
 - 15.6" / 24" / 32" 三个尺寸
 - IPS LCD 触摸屏，WiFi 6 + Bluetooth 5.0
-- 内置 Android 系统（可装 App Store 内 App）
+- 内置 Android 系统（可装第三方 App）
 - 双扬声器
 
 **CalendarOS 功能：**
@@ -209,7 +166,7 @@ DAKboard 是纯粹的"数据展示板"，所有内容都是手动配置。适合
 
 ---
 
-### Cozyla 数字
+## Slide 9｜Cozyla — 数字与意义
 
 | 指标 | 数据 |
 |---|---|
@@ -219,13 +176,7 @@ DAKboard 是纯粹的"数据展示板"，所有内容都是手动配置。适合
 | 销售渠道 | 独立站 DTC + Amazon |
 | 团队 | 中国（深圳/广州） |
 
----
-
-### Cozyla 的意义（出海视角）
-
-✅ **验证了国内团队可以做这个市场**
-- 没有品牌积累，靠产品力拿到 4.94 分、398 条评价
-- 在 Skylight（$159）已建立心智的市场，以 $629 高价切入高端用户
+✅ **验证了国内团队可以做这个市场**：没有品牌积累，靠产品力拿到 4.94 分、398 条评价；在 Skylight（$159）已建立心智的市场，以 $629 高价切入高端用户
 
 ✅ **验证了用户愿意为"更好的硬件"付溢价**
 
@@ -233,19 +184,15 @@ DAKboard 是纯粹的"数据展示板"，所有内容都是手动配置。适合
 
 ---
 
-## 加一个：Hearth Display — 最接近 AI 的玩家
+## Slide 10｜Hearth Display — 最接近 AI 的玩家
 
 ![Hearth Display](https://hearthdisplay.com/cdn/shop/files/HearthDisplay_1004Calendar_1.jpg?v=1749843870)
 
-*图：Hearth Display，$399*  
-*来源：[hearthdisplay.com](https://hearthdisplay.com)*
+*图：Hearth Display，$399 · 来源：[hearthdisplay.com](https://hearthdisplay.com)*
 
----
-
-### Hearth 为什么值得关注
-
+**为什么值得关注：**
 - $7.6M 融资（2022 年 $2.8M + 2023 年 $4.6M）
-- 有 **Hearth Helper**：类 AI 助手，可以拍照上传纸质日历自动解析
+- **Hearth Helper**：类 AI 助手，可拍照上传纸质日历自动解析
 - 明确打"家庭 mental load"概念
 - App Store 3.9 分 / 206 ratings（产品有瑕疵，但方向对了）
 
@@ -258,7 +205,7 @@ DAKboard 是纯粹的"数据展示板"，所有内容都是手动配置。适合
 
 ---
 
-## 赛道结构判断
+## Slide 11｜赛道结构判断
 
 ### 市场验证了什么
 
@@ -276,22 +223,22 @@ DAKboard 是纯粹的"数据展示板"，所有内容都是手动配置。适合
 
 ---
 
-## 核心洞察
+## Slide 12｜核心洞察
 
 ### 不是"更好的日历屏"
 ### 是"替家庭做协调的 agent"
 
+Skylight 证明了需求。但 AI 带来的是**根本性差异**——
+
+从"被动展示"到"主动协调"：不只是告诉你日历里有什么，而是帮你**记住、分配、推进、跟进**。
+
 ---
 
-## 目标人群：谁在承受 Mental Load
+## Slide 13｜目标人群：谁在承受 Mental Load
 
 **Mental Load = 家庭运营的隐形认知负担**
 
 不只是"做事"，而是：**记住有什么事、想着什么时候做、提醒别人做、检查有没有做完**
-
----
-
-### 三类核心用户
 
 **1. 婚后家庭女主**
 - 承担 70-80% 的家庭 mental load（研究数据）
@@ -301,16 +248,16 @@ DAKboard 是纯粹的"数据展示板"，所有内容都是手动配置。适合
 **2. 恋爱中的男人**
 - 想表现体贴，但不知道从哪里切入
 - 痛点：「我不是不关心，就是总忘」
-- 需求：一个能帮他主动记住、及时提醒、让他"显得靠谱"的工具
+- 需求：帮他主动记住，让他"显得靠谱"
 
 **3. 有未成年子女的父母**
-- 孩子的日程：补习、兴趣班、学校活动，一旦多孩就指数级复杂
+- 孩子日程指数级复杂（补习/兴趣班/学校活动）
 - 痛点：「光是管孩子的事就已经用完我的脑子了」
 - 需求：孩子的任务自动分解，进度可见，不用反复追问
 
 ---
 
-## 我们的差异化：主动 vs 被动
+## Slide 14｜我们的差异化：主动 vs 被动
 
 | 维度 | 现有产品 | 我们 |
 |---|---|---|
@@ -322,7 +269,7 @@ DAKboard 是纯粹的"数据展示板"，所有内容都是手动配置。适合
 
 ---
 
-## 商业化思路：入口级机会
+## Slide 15｜商业化思路：入口级机会
 
 家庭显示屏是**进入家庭场景的硬件入口**，背后连接的是家庭个性化服务、数据私有化、以及未来 to-agent 的服务生态。
 
@@ -351,13 +298,11 @@ DAKboard 是纯粹的"数据展示板"，所有内容都是手动配置。适合
 
 ---
 
-## 产品路线：软件先行
+## Slide 16｜产品路线：软件先行，三步走
 
-### 短期目标（0–12个月）
+### 短期（0–12个月）· 家庭智能体 App
 
-**家庭智能体 App**，核心从 Calendar 入手
-
-**不是做一个更好的日历，是做家庭运营助理：**
+核心从 Calendar 入手，做家庭运营助理而非更好的日历：
 - 接入 Google/Apple/Outlook 日历
 - 解析群消息、邮件、学校通知（照片识别）
 - AI 主动生成每日/每周家庭简报
@@ -366,21 +311,13 @@ DAKboard 是纯粹的"数据展示板"，所有内容都是手动配置。适合
 
 **营销角度：** 不卖"日历"，卖"解放妈妈的大脑"
 
----
-
-### 中期目标（12–24个月）
-
-**社区 + 硬件兼容**
+### 中期（12–24个月）· 社区 + 硬件兼容
 
 - 支持旧 iPad / 安卓平板 / 树莓派跑我们的 App
 - 开放 DIY 社区（类 DAKboard 但有 AI 加持）
-- 适配市场上主流显示屏（Skylight、普通平板）
+- 适配市场上主流显示屏
 
----
-
-### 长期目标（24个月+）
-
-**软件验证后，自然生长出硬件**
+### 长期（24个月+）· 自然生长出硬件
 
 - 开放硬件规格（类 DAKboard 但有标准）
 - 官方推荐机型
@@ -390,14 +327,7 @@ DAKboard 是纯粹的"数据展示板"，所有内容都是手动配置。适合
 
 ---
 
-## 一句话定位
-
-> **"不是展示家庭信息的屏幕**
-> **是替家庭做协调的 agent"**
-
----
-
-## 从 Skylight 的差评里找机会
+## Slide 17｜从 Skylight 的差评里找机会
 
 Skylight 最高频的差评，就是我们的 PRD：
 
@@ -411,7 +341,7 @@ Skylight 最高频的差评，就是我们的 PRD：
 
 ---
 
-## 总结
+## Slide 18｜总结
 
 1. **市场已被验证**：Skylight 150万台证明了需求，但没人做到 AI agent
 2. **时机对了**：LLM 能力在 2024-2025 才到了能做实用家庭 agent 的门槛
@@ -419,6 +349,8 @@ Skylight 最高频的差评，就是我们的 PRD：
 4. **差异化明确**：主动 agent vs 被动展示，不只是"更好的日历"
 5. **路线合理**：软件 → 社区 → 兼容硬件 → 自有硬件，每步有验证节点
 
+> **"不是展示家庭信息的屏幕，是替家庭做协调的 agent"**
+
 ---
 
-*by tuly · 2026-03*
+*by tuly · 2026-03 · [github.com/tuly-space/home-agent-display](https://github.com/tuly-space/home-agent-display)*
